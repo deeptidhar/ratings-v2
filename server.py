@@ -19,10 +19,27 @@ def homepage():
 
     return render_template('homepage.html')
 
+@app.route('/movies/<movie_id>')# going to movie id i.e represents a no
+def show_movie(movie_id):
+    movie = crud.get_movie_by_id(movie_id)
+
+    return render_template('movie_details.html', movie=movie)
+
 @app.route('/movies')
 def all_movies():
     movies=crud.get_movies()
     return render_template('all_movies.html',movies=movies)
+
+@app.route('/users')
+def all_users():
+    users=crud.get_users()
+    return render_template('all_users.html',users=users)   
+
+@app.route('/users/<user_id>')# going to movie id i.e represents a no
+def show_user(user_id):
+    user = crud.get_user_by_id(user_id)
+
+    return render_template('user_details.html', user=user)
 
 if __name__ == '__main__':
     connect_to_db(app)

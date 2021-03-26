@@ -22,6 +22,8 @@ for movie in movie_data:
     title, overview, poster_path = (movie['title'],
                                     movie['overview'],
                                     movie['poster_path'])
+    
+    # title = movie['title']
 
     release_date = datetime.strptime(movie['release_date'], '%Y-%m-%d')
 
